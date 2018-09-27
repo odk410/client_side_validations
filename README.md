@@ -1,24 +1,25 @@
-# README
+#ClientSideValidations
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> 참고 : https://github.com/DavyJonesLocker/client_side_validations
 
-Things you may want to cover:
+- gem 설치
 
-* Ruby version
+    `gem 'client_side_validations'`
 
-* System dependencies
 
-* Configuration
+- client_side_validations 설치
 
-* Database creation
+    `rails g client_side_validations:install`
 
-* Database initialization
+    설치하면 `config/initializers/client_side_validations.rb` 가 생성된다.
 
-* How to run the test suite
+-   이 후 `rails.validations.js`를 만들기 위해 아래 코드 실행
 
-* Services (job queues, cache servers, search engines, etc.)
+    `rails g client_side_validations:copy_assets`
+    
+- `rails.validations.js`를 만들었다면 `app/assets/javascripts/application.js`에 추가하기
+    `//= require rails.validations`
+    
+-  사용할 form에서 아래처럼 validate를 ture로 설정하면 된다.
 
-* Deployment instructions
-
-* ...
+    `<%= form_for @user, validate: true do |f| %>`
